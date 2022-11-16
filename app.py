@@ -28,13 +28,13 @@ server = app.server
 path_repo = os.path.dirname(os.path.abspath('app'))
 
 # Load models
-path_model_150 = os.path.join(path_repo, 'models', 'MobileNetV3L_Kaggle_p150_e50')
-path_model_300 = os.path.join(path_repo, 'models', 'MobileNetV3L_Kaggle_p300_e50')
+path_model_150 = os.path.join(path_repo, 'models', 'MobileNetV3L_europe-40_p150_e75')
+path_model_300 = os.path.join(path_repo, 'models', 'MobileNetV3L_europe-40_p300_e10')
 model_150 = tf.keras.models.load_model(path_model_150)
 model_300 = tf.keras.models.load_model(path_model_300)
 
 # Load labels
-df = pd.read_csv(os.path.join(path_repo, 'labelmap_europe.txt'), header=None, names=['species'])
+df = pd.read_csv(os.path.join(path_repo, 'labelmap_europe-40.txt'), header=None, names=['species'])
 labelmap = df.species.tolist()
 
 # Preallocate click-counter
